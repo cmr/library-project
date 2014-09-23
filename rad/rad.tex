@@ -154,7 +154,27 @@
 
 \begin{usecase}
 
-\addtitle{Use Case 2}{Handle User Searching for Books \textit{(Adam Kimball)}}
+\addtitle{Use Case 2}{Handle User Book Checkin \textit{(Corey Richardson)}}
+\addfield{Scope:}{Library Management System}
+\addfield{Level:}{User-goal}
+\addfield{Primary Actor:}{End-user}
+\additemizedfield{Stakeholders and Interests:}{
+    \item Lab Member: Wants to easily return a previously checked-out book.
+}
+
+\addscenario{Main Success Scenario:}{
+    \item User scans ``Check In'' command.
+    \item User scans user ID (this is to handle multiple copies of a book
+        being signed out to multiple users).
+    \item User scans book barcode.
+    \item Scanner emits ``success'' beep to indicate successful completion.
+}
+
+\end{usecase}
+
+\begin{usecase}
+
+\addtitle{Use Case 3}{Handle User Searching for Books \textit{(Adam Kimball)}}
 
 %Scope: the system under design
 \addfield{Scope:}{Library Management System}
