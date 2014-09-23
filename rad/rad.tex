@@ -254,5 +254,142 @@
 \end{usecase}
 
 
+\begin{usecase}
+
+\addtitle{Use Case 3}{Database \textit{(Alex Macri)}}
+
+%Scope: the system under design
+\addfield{Scope:}{Library Management System}
+
+%Level: "user-goal" or "subfunction"
+\addfield{Level:}{Subfunction}
+
+%Primary Actor: Calls on the system to deliver its services.
+\addfield{Primary Actor:}{Scanner and Webinterface}
+
+%Stakeholders and Interests: Who cares about this use case and what do they want?
+\additemizedfield{Stakeholders and Interests:}{
+	\item  User: 
+	Wants to easily find a book with the description and if the book is checkout and if the book is checkout when will the be returned.
+	See valuable information in a timely fashion.
+	Usuable functionality of the database so it is easy to use, understand, and works as expected. 
+	\item Maintaner: 
+	For modularity so it is easier to add more functions when needed in the future.
+	The database to be fast with searching through the list of books.
+}
+
+%Preconditions: What must be true on start and worth telling the reader?
+%\addfield{Preconditions:}{}
+%when multiple
+\additemizedfield{Preconditions:}{
+	\item Webserver is functional
+	\item Database is populated with books
+	\item Database has functionality for user requests from the browser
+}
+
+%Postconditions: What must be true on successful completion and worth telling the reader
+%\addfield{Postconditions:}{\textit{None}}
+%when multiple
+\additemizedfield{Postconditions:}{
+		\item The Database preforms all tasks correctly 
+		\item When requested to list the books. The database will return the either error or on success return the list in a proper format.
+		 \item When requested to add a book. The database with add the book with the correct information for the book.
+		\item When requested to delete a book. The database with delete the book with the correct information for the book.
+		\item When requested to checkout and checkin a book. The database with a flag on whether the book is checked-in or checked-out the book with the correct information for the book.    
+		
+}
+
+%Main Success Scenario: A typical, unconditional happy path scenario of success.
+\addscenario{Main Success Scenario:}{
+	\item User visits the Library webpage
+	\item User list selects, checkouts, returns, adds Books
+	\item User is presented functionality of these prosedures and can complete the task required.
+	\item User is able to search the database in a fast and resonable time.
+	\item Maintainer is able to easily add features and refactor the code.
+}
+
+%Extensions: Alternate scenarios of success or failure.
+\addscenario{Extensions:}{
+	\item[1.a] Invalid login data:
+		\begin{enumerate}
+		\item[1.] System shows failure message
+		\item[2.] User cannot login and prompts the user to retry
+		\end{enumerate}
+	\item[1.b] Valid login data:
+		\begin{enumerate}
+		\item[1.] System shows success message
+		\item[2.] User continues onto the site
+		\end{enumerate}
+	\item[2.a] Invalid checkout data:
+		\begin{enumerate}
+		\item[1.] System shows failure message
+		\end{enumerate}
+	\item[2.b] Valid checkout data:
+		\begin{enumerate}
+		\item[1.] System shows success message
+		\item[2.] User has checkouted out the book and the database is modified
+		\end{enumerate}
+	\item[3.a] Invalid checkin data:
+		\begin{enumerate}
+		\item[1.] System shows failure message
+		\end{enumerate}
+	\item[3.b] Valid checkin data:
+		\begin{enumerate}
+		\item[1.] System shows success message
+		\item[2.] User has checkined out the book and the database is modified
+		\end{enumerate}
+	\item[4.a] Invalid delete data:
+		\begin{enumerate}
+		\item[1.] System shows failure message
+		\end{enumerate}
+	\item[4.b] Valid delete data:
+		\begin{enumerate}
+		\item[1.] System shows success message
+		\item[2.] User updates the database with the book entry gone
+		\end{enumerate}
+	\item[5.a] Invalid add data:
+		\begin{enumerate}
+		\item[1.] System shows failure message
+		\end{enumerate}
+	\item[5.b] Valid add data:
+		\begin{enumerate}
+		\item[1.] System shows failure message
+		\item[2.] User adds a book to the database
+		\end{enumerate}
+	\item[6.a] Invalid list data:
+		\begin{enumerate}
+		\item[1.] System shows failure message
+		\end{enumerate}
+	\item[6.b] Valid list data:
+		\begin{enumerate}
+		\item[1.] System shows success message
+		\item[2.] User list the books that are currently in the database
+		\end{enumerate}
+}
+
+%Special Requirements: Related non-functional requirements.
+\additemizedfield{Special Requirements:}{
+	\item Response to request in a fast and resonable timeframe 
+}
+
+%Technology and Data Variations List: Varying I/O methods and data formats.
+\addscenario{Technology and Data Variations List:}{
+	\item[1a.] Implemented with Rust Programming Language
+	\item[1b.] Uses post-gres database server
+	\item[1c.] Runs on standard linux systems
+}
+
+%Frequency of Occurrence: Influences investigation, testing and timing of implementation.
+\addfield{Frequency of Occurrence:}{
+	Multiple time per week
+}
+
+%Miscellaneous: Such as open issues/questions
+%\addfield{Open Issues:}{}
+
+\end{usecase}
+
+
+
 
 \end{document}
