@@ -50,7 +50,7 @@
 \additemizedfield{Stakeholders and Interests:}{
 	\item Lab Member: Wants to check out books easily, using student ID card,
         and without entering book information manually.
-    \item Library Manager: Wants certain books to not be checked out, and
+    \item Library Maintainer: Wants certain books to not be checked out, and
         users to only be able to checkout a certain number of books.
 }
 
@@ -60,6 +60,7 @@
 \additemizedfield{Preconditions:}{
     \item Lab Member must have a valid student ID.
     \item Book must be in the library (cannot check out book online).
+    \item Library barcode scanner is present and functional.
 }
 
 %Postconditions: What must be true on successful completion and worth telling the reader
@@ -78,7 +79,7 @@
     \item \label{itm:scancommand} The user scans the ``checkout book'' command on a command sheet.
     \item \label{itm:scanid} The user scans their student ID barcode.
     \item \label{itm:scanbarcode} The user scans the book's barcode.
-    \item \label{itm:happybeep} The scanner makes a ``success'' beep, indicating
+    \item The scanner makes a ``success'' beep, indicating
         that the user has successfully checked out the book.
 }
 
@@ -88,23 +89,58 @@
 		\begin{enumerate}
 		\item Scanner makes a ``failure'' beep, and uses text-to-speech to
             state ``Invalid Command''.
-		\item User returns to step 2 and corrects the errors
+        \item User returns to step \ref{itm:scancommand} and re-scans a
+            correct command.
 		\end{enumerate}
+
+    \item[\ref{itm:scanid}.a] Unknown ID:
+        \begin{enumerate}
+        \item Scanner makes a ``failure'' beep, and uses text-to-speech to
+            state ``Unknown ID''.
+        \item User registers their ID (see ``Registration'' usecase)
+        \end{enumerate}
+
+    \item[\ref{itm:scanbarcode}.a] Unknown ISBN:
+        \begin{enumerate}
+        \item Scanner sends ISBN to server to register it as part of the
+            library, followed by a checkout command.
+        \item Server fetches the book information and adds it to the library
+            database, as well as checking out that book to the user.
+        \item Scanner makes a ``success'' beep.
+        \end{enumerate}
+
+    \item[\ref{itm:scanbarcode}.b] Book already checked out:
+        \begin{enumerate}
+        \item Scanner uses tex-to-speech to state ``Book checked out to (User
+            Currently Assigned To Book), add new copy?''.
+        \item User scans ``Yes'' or ``No'' command from command sheet.
+        \item If Yes, server adds another copy of that book to the library and
+            checks it out to the user.
+        \item If No, prompt the user whether the book should be checked out.
+            \begin{enumerate}
+            \item If Yes, check the book out from the other user.
+            \item If No, emit ``failure'' beep and use text-to-speech to state
+                ``Already checked out, ask (User Currently Assigned To Book)
+                to check it out''.
+            \end{enumerate}
+        \end{enumerate}
 }
 
 %Special Requirements: Related non-functional requirements.
 \additemizedfield{Special Requirements:}{
-	\item first applicable non-functional requirement
-	\item second applicable non-functional requirement
+	\item Scanner responds within 1 second 90\% of the time.
+	\item Scanner resets all commands after 1 minute of waiting for input, to
+        handle users walking away.
 }
 
 %Technology and Data Variations List: Varying I/O methods and data formats.
 \addscenario{Technology and Data Variations List:}{
-	\item[1a.] Alternative first action with other technology
+	\item All interaction done with a barcode scanner using standard user ID
+        cards and ISBN barcodes.
 }
 
 %Frequency of Occurrence: Influences investigation, testing and timing of implementation.
-\addfield{Frequency of Occurrence:}{}
+\addfield{Frequency of Occurrence:}{Multiple times per week}
 
 %Miscellaneous: Such as open issues/questions
 %\addfield{Open Issues:}{}
