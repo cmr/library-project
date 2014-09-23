@@ -85,23 +85,23 @@
 
 %Extensions: Alternate scenarios of success or failure.
 \addscenario{Extensions:}{
-    \item[\ref{itm:scancommand}.a] Invalid command:
-		\begin{enumerate}
+    \item[\ref{itm:scancommand}a.] Invalid command:
+        \begin{enumerate}[1.]
 		\item Scanner makes a ``failure'' beep, and uses text-to-speech to
             state ``Invalid Command''.
         \item User returns to step \ref{itm:scancommand} and re-scans a
             correct command.
 		\end{enumerate}
 
-    \item[\ref{itm:scanid}.a] Unknown ID:
-        \begin{enumerate}
+    \item[\ref{itm:scanid}a.] Unknown ID:
+        \begin{enumerate}[1.]
         \item Scanner makes a ``failure'' beep, and uses text-to-speech to
             state ``Unknown ID''.
         \item User registers their ID (see ``Registration'' usecase)
         \end{enumerate}
 
-    \item[\ref{itm:scanbarcode}.a] Unknown ISBN:
-        \begin{enumerate}
+    \item[\ref{itm:scanbarcode}a.] Unknown ISBN:
+        \begin{enumerate}[1.]
         \item Scanner sends ISBN to server to register it as part of the
             library, followed by a checkout command.
         \item Server fetches the book information and adds it to the library
@@ -109,15 +109,15 @@
         \item Scanner makes a ``success'' beep.
         \end{enumerate}
 
-    \item[\ref{itm:scanbarcode}.b] Book already checked out:
-        \begin{enumerate}
+    \item[\ref{itm:scanbarcode}b.] Book already checked out:
+        \begin{enumerate}[1.]
         \item Scanner uses tex-to-speech to state ``Book checked out to (User
             Currently Assigned To Book), add new copy?''.
         \item User scans ``Yes'' or ``No'' command from command sheet.
         \item If Yes, server adds another copy of that book to the library and
             checks it out to the user.
         \item If No, prompt the user whether the book should be checked out.
-            \begin{enumerate}
+            \begin{enumerate}[1.]
             \item If Yes, check the book out from the other user.
             \item If No, emit ``failure'' beep and use text-to-speech to state
                 ``Already checked out, ask (User Currently Assigned To Book)
@@ -140,7 +140,7 @@
 }
 
 %Frequency of Occurrence: Influences investigation, testing and timing of implementation.
-\addfield{Frequency of Occurrence:}{Multiple times per week}
+\addfield{Frequency of Occurrence:}{Multiple times per week.}
 
 %Miscellaneous: Such as open issues/questions
 %\addfield{Open Issues:}{}
@@ -180,10 +180,10 @@
 \addfield{Scope:}{Library Management System}
 
 %Level: "user-goal" or "subfunction"
-\addfield{Level:}{User-Goal}
+\addfield{Level:}{User-goal}
 
 %Primary Actor: Calls on the system to deliver its services.
-\addfield{Primary Actor:}{End-User}
+\addfield{Primary Actor:}{End-user}
 
 %Stakeholders and Interests: Who cares about this use case and what do they want?
 \additemizedfield{Stakeholders and Interests:}{
@@ -216,18 +216,18 @@
 
 %Extensions: Alternate scenarios of success or failure.
 \addscenario{Extensions:}{
-	\item[\ref{itm:search}.a] User selects 'All Books' link, rather than inputting a search term:
-		\begin{enumerate}[1]
+	\item[\ref{itm:search}a.] User selects 'All Books' link, rather than inputting a search term:
+		\begin{enumerate}[1.]
 		\item User selects 'All Books'.
 		\item User is presented with a paginated listing of all books from the book database, a truncated version of their description, and whether or not they are available for loan.
 		\end{enumerate}
-	\item[\ref{itm:listing}.a]User selects a book:
-		\begin{enumerate}[1]
+	\item[\ref{itm:listing}a.]User selects a book:
+		\begin{enumerate}[1.]
 		\item User clicks on a book in the list.
 		\item User is redirected to a page with large cover image(if available), and a full description.
 		\end{enumerate}
-	\item[\ref{itm:listing}.b] User does not input a search that has a result:
-		\begin{enumerate}[1]
+	\item[\ref{itm:listing}b.] User does not input a search that has a result:
+		\begin{enumerate}[1.]
 		\item No books or authors match user's search.
 		\item User is returned an empty list.
 		\end{enumerate}
