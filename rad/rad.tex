@@ -19,9 +19,7 @@
 
 \title{Library Project Requirements Analysis Document}
 \date{\today}
-\author{Adam Kimball}
-\author{Alex Macri}
-\author{Corey Richardson}
+\author{Adam Kimball, Alex Macri, Corey Richardson}
 
 \begin{document}
 
@@ -36,50 +34,60 @@
 %(3rd Edition) by Craig Larman.
 \begin{usecase}
 
-\addtitle{Use Case 1}{Template test}
+\addtitle{Use Case 1}{Handle Book Checkout \texit{(Corey Richardson)}}
 
 %Scope: the system under design
-\addfield{Scope:}{System-wide}
+\addfield{Scope:}{Library Management System}
 
 %Level: "user-goal" or "subfunction"
 \addfield{Level:}{User-goal}
 
 %Primary Actor: Calls on the system to deliver its services.
-\addfield{Primary Actor:}{End-User}
+\addfield{Primary Actor:}{Lab Member}
 
 %Stakeholders and Interests: Who cares about this use case and what do they want?
 \additemizedfield{Stakeholders and Interests:}{
-	\item Stakeholder 1 name: his interests
-	\item Stakeholder 2 name: his interests
+	\item Lab Member: Wants to check out books easily, using student ID card,
+        and without entering book information manually.
+    \item Library Manager: Wants certain books to not be checked out, and
+        users to only be able to checkout a certain number of books.
 }
 
 %Preconditions: What must be true on start and worth telling the reader?
-\addfield{Preconditions:}{}
+%\addfield{Preconditions:}{}
 %when multiple
-%\additemizedfield{Preconditions:}{}
+\additemizedfield{Preconditions:}{
+    \item Lab Member must have a valid student ID.
+    \item Book must be in the library (cannot check out book online).
+}
 
 %Postconditions: What must be true on successful completion and worth telling the reader
-\addfield{Postconditions:}{}
+%\addfield{Postconditions:}{}
 %when multiple
-%\additemizedfield{Preconditions:}{}
+\additemizedfield{Postconditions:}{
+    \item Book is assigned to the user.
+    \item The user's quota is decremented.
+    \item The book is marked as ``unavailable''.
+}
 
 %Main Success Scenario: A typical, unconditional happy path scenario of success.
 \addscenario{Main Success Scenario:}{
-	\item The first action
-	\item The second action
+	\item The user browses the bookshelves.
+    \item The user takes the book to the scanner.
+    \item \label{itm:scancommand} The user scans the ``checkout book'' command on a command sheet.
+    \item \label{itm:scanid} The user scans their student ID barcode.
+    \item \label{itm:scanbarcode} The user scans the book's barcode.
+    \item \label{itm:happybeep} The scanner makes a ``success'' beep, indicating
+        that the user has successfully checked out the book.
 }
 
 %Extensions: Alternate scenarios of success or failure.
 \addscenario{Extensions:}{
-	\item[2.a] Invalid login data:
+    \item[\ref{itm:scancommand}.a] Invalid command:
 		\begin{enumerate}
-		\item[1.] System shows failure message
-		\item[2.] User returns to step 1
-		\end{enumerate}
-	\item[5.a] Invalid subsriber data:
-		\begin{enumerate}
-		\item[1.] System shows failure message
-		\item[2.] User returns to step 2 and corrects the errors
+		\item Scanner makes a ``failure'' beep, and uses text-to-speech to
+            state ``Invalid Command''.
+		\item User returns to step 2 and corrects the errors
 		\end{enumerate}
 }
 
@@ -130,7 +138,7 @@
 %\addfield{Preconditions:}{}
 %when multiple
 \additemizedfield{Preconditions:}{
-	\item Webserver is functional 
+	\item Webserver is functional
 	\item Database is populated with books
 }
 
