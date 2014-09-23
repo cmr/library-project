@@ -16,6 +16,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage{usecases}
+\usepackage{enumerate}
 
 \title{Library Project Requirements Analysis Document}
 \date{\today}
@@ -34,7 +35,7 @@
 %(3rd Edition) by Craig Larman.
 \begin{usecase}
 
-\addtitle{Use Case 1}{Handle Book Checkout \texit{(Corey Richardson)}}
+\addtitle{Use Case 1}{Handle Book Checkout \textit{(Corey Richardson)}}
 
 %Scope: the system under design
 \addfield{Scope:}{Library Management System}
@@ -117,7 +118,7 @@
 
 \begin{usecase}
 
-\addtitle{Use Case 2}{Handle User Searching for Available Books}
+\addtitle{Use Case 2}{Handle User Searching for Books \textit{(Adam Kimball)}}
 
 %Scope: the system under design
 \addfield{Scope:}{Library Management System}
@@ -130,57 +131,66 @@
 
 %Stakeholders and Interests: Who cares about this use case and what do they want?
 \additemizedfield{Stakeholders and Interests:}{
-	\item Lab Member: Wants to easily find a list of books presently available for checkout, with descriptions for each
-	\item Library Member: Wants to have a list available without manually keeping track of each book, or having to inform Lab Members of their status.
+	\item Lab Member: Wants to easily find a list of books presently available for checkout, with descriptions for each.
+	\item Library Maintainer: Wants to have a list available without manually keeping track of each book, or having to inform Lab Members of the book's status.
 }
 
 %Preconditions: What must be true on start and worth telling the reader?
 %\addfield{Preconditions:}{}
 %when multiple
 \additemizedfield{Preconditions:}{
-	\item Webserver is functional
-	\item Database is populated with books
+	\item Webserver is functional.
+	\item Database is populated with books.
 }
 
 %Postconditions: What must be true on successful completion and worth telling the reader
-\addfield{Postconditions:}{\textit{None}}
+%\addfield{Postconditions:}{User has been served a list of books relevant to input}
 %when multiple
-%\additemizedfield{Postconditions:}{}
+\additemizedfield{Postconditions:}{
+	\item User has been served a list of relevant books, if any exist.
+	\item User has been given an empty list, if there are no books relevant to input.
+}
 
 %Main Success Scenario: A typical, unconditional happy path scenario of success.
 \addscenario{Main Success Scenario:}{
-	\item User visits the Library webpage
-	\item User selects the link for 'All Books'
-	\item User is presented with a listing of all books, a truncated version of their description, and whether or not they are available for loan
+	\item \label{itm:webpage} User visits the Library webpage.
+	\item \label{itm:search} User types a book title or author into text field, and clicks 'search'.
+	\item \label{itm:listing} User is returned a paginated list of all books containing that text in their title or author name, with a truncated version of their description for each, and whether or not each is available for loan.
 }
 
 %Extensions: Alternate scenarios of success or failure.
 \addscenario{Extensions:}{
-	\item[2.a] Invalid login data:
-		\begin{enumerate}
-		\item[1.] System shows failure message
-		\item[2.] User returns to step 1
+	\item[\ref{itm:search}.a] User selects 'All Books' link, rather than inputting a search term:
+		\begin{enumerate}[1]
+		\item User selects 'All Books'.
+		\item User is presented with a paginated listing of all books from the book database, a truncated version of their description, and whether or not they are available for loan.
 		\end{enumerate}
-	\item[5.a] Invalid subsriber data:
-		\begin{enumerate}
-		\item[1.] System shows failure message
-		\item[2.] User returns to step 2 and corrects the errors
+	\item[\ref{itm:listing}.a]User selects a book:
+		\begin{enumerate}[1]
+		\item User clicks on a book in the list.
+		\item User is redirected to a page with large cover image(if available), and a full description.
+		\end{enumerate}
+	\item[\ref{itm:listing}.b] User does not input a search that has a result:
+		\begin{enumerate}[1]
+		\item No books or authors match user's search.
+		\item User is returned an empty list.
 		\end{enumerate}
 }
 
 %Special Requirements: Related non-functional requirements.
 \additemizedfield{Special Requirements:}{
-	\item first applicable non-functional requirement
-	\item second applicable non-functional requirement
+	\item Search results returned by server within 5 seconds 90\% of the time.
+	\item Books with no available cover image have an implemented placeholder image.
+	\item Interface is simple, and easy to navigate.
+	\item List served is clean/easy to read.
 }
 
 %Technology and Data Variations List: Varying I/O methods and data formats.
-\addscenario{Technology and Data Variations List:}{
-	\item[1a.] Alternative first action with other technology
+\additemizedfield{Technology and Data Variations List:}{
+	\item Accessible with recent versions of IE, Chrome, Firefox, and text-based browsers such as Lynx/Elinks.
 }
-
 %Frequency of Occurrence: Influences investigation, testing and timing of implementation.
-\addfield{Frequency of Occurrence:}{}
+\addfield{Frequency of Occurrence:}{Multiple times per week.}
 
 %Miscellaneous: Such as open issues/questions
 %\addfield{Open Issues:}{}
