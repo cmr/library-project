@@ -260,7 +260,7 @@
 
 \begin{usecase}
 
-\addtitle{Use Case 4}{Vieweing Meeting Videos \textit{(Adam Kimball)}}
+\addtitle{Use Case 4}{Viewing Meeting Videos \textit{(Adam Kimball)}}
 \addfield{Scope:}{Clarkson Open Source Institute Wiki}
 \addfield{Level:}{User-goal}
 \addfield{Primary Actor:}{End-user}
@@ -270,8 +270,9 @@
 
 \addscenario{Main Success Scenario:}{
     \item User accesses video portion of the COSI Wiki site.
-    \item User selects a meeting date 
-    \item User is presented with an embedded video player, as well as a small summary of what happened at hte metting
+    \item User selects a meeting date
+    \item User is presented with an embedded video player, as well as a small
+        summary of what happened at the meeting
 }
 
 \end{usecase}
@@ -291,15 +292,15 @@
 \addfield{Level:}{Subfunction}
 
 %Primary Actor: Calls on the system to deliver its services.
-\addfield{Primary Actor:}{Scanner and Webinterface}
+\addfield{Primary Actor:}{Scanner and Web Interface}
 
 %Stakeholders and Interests: Who cares about this use case and what do they want?
 \additemizedfield{Stakeholders and Interests:}{
 	\item  User:
 	Wants to easily find a book with the description and if the book is checkout and if the book is checkout when will the be returned.
 	See valuable information in a timely fashion.
-	Usuable functionality of the database so it is easy to use, understand, and works as expected.
-	\item Maintaner:
+	Usable functionality of the database so it is easy to use, understand, and works as expected.
+	\item Maintainer:
 	For modularity so it is easier to add more functions when needed in the future.
 	The database to be fast with searching through the list of books.
 }
@@ -317,11 +318,11 @@
 %\addfield{Postconditions:}{\textit{None}}
 %when multiple
 \additemizedfield{Postconditions:}{
-		\item The Database preforms all tasks correctly>
-		\item When requested to list the books. The database will return the either error or on success return the list in a proper format.
-		 \item When requested to add a book. The database with add the book with the correct information for the book.
-		\item When requested to delete a book. The database with delete the book with the correct information for the book.
-		\item When requested to checkout and checkin a book. The database with a flag on whether the book is checked-in or checked-out the book with the correct information for the book.
+    \item The Database preforms all tasks correctly
+    \item When requested to list the books. The database will return the either error or on success return the list in a proper format.
+    \item When requested to add a book. The database with add the book with the correct information for the book.
+    \item When requested to delete a book. The database with delete the book with the correct information for the book.
+    \item When requested to checkout and checkin a book. The database with a flag on whether the book is checked-in or checked-out the book with the correct information for the book.
 
 }
 
@@ -329,8 +330,8 @@
 \addscenario{Main Success Scenario:}{
 	\item User visits the Library webpage.
 	\item User list selects, checkouts, returns, adds Books.
-	\item User is presented functionality of these prosedures and can complete the task required.
-	\item User is able to search the database in a fast and resonable time.
+	\item User is presented functionality of these procedures and can complete the task required.
+	\item User is able to search the database in a fast and reasonable time.
 	\item Maintainer is able to easily add features and refactor the code.
 }
 
@@ -353,7 +354,7 @@
 	\item[2b.] Valid checkout data:
         \begin{enumerate}[1.]
 		\item System shows success message.
-		\item User has checkouted out the book and the database is modified.
+		\item User has checked out out the book and the database is modified.
 		\end{enumerate}
 	\item[3a.] Invalid checkin data:
         \begin{enumerate}[1.]
@@ -362,7 +363,7 @@
 	\item[3b.] Valid checkin data:
         \begin{enumerate}[1.]
 		\item System shows success message.
-		\item User has checkined out the book and the database is modified.
+		\item User has checked in out the book and the database is modified.
 		\end{enumerate}
 	\item[4a.] Invalid delete data:
         \begin{enumerate}[1.]
@@ -395,7 +396,7 @@
 
 %Special Requirements: Related non-functional requirements.
 \additemizedfield{Special Requirements:}{
-	\item Response to request in a fast and resonable timeframe.
+	\item Response to request in a fast and reasonable timeframe.
 }
 
 %Technology and Data Variations List: Varying I/O methods and data formats.
@@ -423,13 +424,13 @@
 \addfield{Level:}{User-goal}
 \addfield{Primary Actor:}{Database}
 \additemizedfield{Stakeholders and Interests:}{
-    \item Lab Member: Wants to easily be able to checked-in or checked-out books.
+    \item Lab Member: Wants to easily be able to query checked-in or checked-out books.
     \item Lab Member: Wants to easily change the check in and check out status.
 }
 
 \addscenario{Main Success Scenario:}{
     \item Database gets the request and changes the flag for the book specified or returns error if invalid book
-    \item Database return success message if the prodecure in successful
+    \item Database return success message if the procedure in successful
 }
 
 \end{usecase}
