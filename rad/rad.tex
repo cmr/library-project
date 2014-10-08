@@ -282,13 +282,13 @@
 
 \begin{usecase}
 
-\addtitle{Use Case 5}{Database \textit{(Alex Macri)}}
+\addtitle{Use Case 5}{Interfacing with Database \textit{(Alex Macri)}}
 
 %Scope: the system under design
 \addfield{Scope:}{Library Management System}
 
 %Level: "user-goal" or "subfunction"
-\addfield{Level:}{Subfunction}
+\addfield{Level:}{User-goal}
 
 %Primary Actor: Calls on the system to deliver its services.
 \addfield{Primary Actor:}{Scanner and Web Interface}
@@ -308,9 +308,9 @@
 %\addfield{Preconditions:}{}
 %when multiple
 \additemizedfield{Preconditions:}{
-	\item Webserver is functional.
-	\item Database is populated with books.
-	\item Database has functionality for user requests from the browser.
+	\item System is functional.
+	\item System is populated with books.
+	\item System has functionality for user requests from the browser.
 }
 
 %Postconditions: What must be true on successful completion and worth telling the reader
@@ -318,20 +318,19 @@
 %when multiple
 \additemizedfield{Postconditions:}{
     \item The Database preforms all tasks correctly
-    \item When requested to list the books. The database will return the either error or on success return the list in a proper format.
-    \item When requested to add a book. The database with add the book with the correct information for the book.
-    \item When requested to delete a book. The database with delete the book with the correct information for the book.
-    \item When requested to checkout and checkin a book. The database with a flag on whether the book is checked-in or checked-out the book with the correct information for the book.
+    \item When requested to list the books. The System will return the either error or on success return the list in a proper format.
+    \item When requested to add a book. The System with add the book with the correct information for the book.
+    \item When requested to delete a book. The System with delete the book with the correct information for the book.
+    \item When requested to checkout and checkin a book. The System with a flag on whether the book is checked-in or checked-out the book with the correct information for the book.
 
 }
 
 %Main Success Scenario: A typical, unconditional happy path scenario of success.
 \addscenario{Main Success Scenario:}{
 	\item User visits the Library webpage.
-	\item User list selects, checkouts, returns, adds Books.
+	\item User selects a function that with interact with the database.
 	\item User is presented functionality of these procedures and can complete the task required.
-	\item User is able to search the database in a fast and reasonable time.
-	\item Maintainer is able to easily add features and refactor the code.
+	\item User completes functionality of the database in 1 sec.
 }
 
 %Extensions: Alternate scenarios of success or failure.
@@ -418,21 +417,22 @@
 
 \begin{usecase}
 
-\addtitle{Use Case 6}{Database Loaning\textit{(Alex Macri)}}
+\addtitle{Use Case 6}{Loading from Database \textit{(Alex Macri)}}
 \addfield{Scope:}{Library Management System}
 \addfield{Level:}{User-goal}
-\addfield{Primary Actor:}{Database}
+\addfield{Primary Actor:}{User of System}
 \additemizedfield{Stakeholders and Interests:}{
     \item Lab Member: Wants to easily be able to query checked-in or checked-out books.
     \item Lab Member: Wants to easily change the check in and check out status.
 }
 
 \addscenario{Main Success Scenario:}{
-    \item Database gets the request and changes the flag for the book specified or returns error if invalid book
-    \item Database return success message if the procedure in successful
+    \item System gets the request and changes the flag for the book specified or returns error if invalid book
+    \item System return success message if the procedure in successful
 }
 
 \end{usecase}
+
 
 
 \end{document}
