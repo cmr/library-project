@@ -33,7 +33,7 @@
 
 \section{Preliminary Report}
 
-After further meeting and consideration, our team has come to the conclusion that the majority of the 
+After further meeting and consideration, our team has come to the conclusion that the majority of the
 initially established directives are going to be implemented within the finished product, as they line
 up directly with the needs of the Clarkson Open Source Institute. The intended feature list can be broken
 into a series of use cases, as will be demonstrated below.
@@ -51,7 +51,6 @@ cases:
 	\item As a user of the library, I want like to have a web interface for keeping track of which books I currently have on loan, and which books are
 available for loan.
 	\item As a user of the library, I want this web interface to provide information on the books available to me.
-
 \end{itemize}
 
 Additionally, while not considered a requirement for completion, there are several use cases whose implementation are desirable for the labs' frequent members:
@@ -62,7 +61,6 @@ Additionally, while not considered a requirement for completion, there are sever
 	\item As the secretary of the Clarkson Open Source Institute, I want to have a means of uploading video recordings of the meetings, and submit accompanying transcripts/meeting minutes.
 	\item As the secretary of the Clarkson Open Source Institute, I want to upload chat logs/email threads that are viewable/searchable by members of the labs.
 	\item As the secretary of the Clarkson Open Source Institute, I want to be able to edit this information with a plain text editor, without needing to learn non-standard version control systems.
-
 \end{itemize}
 
 We are also considering the idea of using the Wiki to provide a couple of other services, but details of this have not yet been worked out.
@@ -494,6 +492,37 @@ The workload for out group is going to be divided as follows:
 }
 
 \end{usecase}
+
+\newpage
+
+\section{Design Goals}
+
+The following design goals have been identified:
+
+\begin{itemize}
+    \item \textit{Ease of adding new books to the library.} The whole purpose
+        of this software system is to achieve this goal, to ensure that the
+        lab's library is well maintained into the future. This leads to the
+        amount of steps for adding books being as minimal as possible,
+        requiring no typing and using existing bar codes.
+    \item \textit{Ease of finding existing books.} The system needs to be
+        applicable to more than just the library maintainer. The search and
+        browsing features of the website work to accomplish this goal. It is
+        conceivable that more ways of accessing this information may be
+        desired in the future.
+    \item \textit{High availability.} The library is used frequently and at
+        all times of the day. Therefore, the library administration system
+        should have minimal unscheduled downtime.
+    \item \textit{Uses available computing resources in the COSI server room.}
+        This is a practical non-functional requirement imposed by the client.
+        The library management system should integrate with the existing
+        infrastructure as much as possible, for ease of administration.
+    \item \textit{Uses a comprehensible architecture for future maintainers.}
+        After this system is designed and implemented, further requirements
+        may come to light as the system is used and the library's needs grow.
+        Further developers need to be able to understand and modify the
+        system, fixing bugs and adding features as necessary.
+\end{itemize}
 
 \newpage
 
