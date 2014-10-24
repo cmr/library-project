@@ -504,24 +504,40 @@ The following design goals have been identified:
         of this software system is to achieve this goal, to ensure that the
         lab's library is well maintained into the future. This leads to the
         amount of steps for adding books being as minimal as possible,
-        requiring no typing and using existing bar codes.
+        requiring no typing and using existing bar codes. The system will achieve
+	this via a barcode scanner, where scanning pre-existing barcodes on the 
+	books will register them in the database if not present.\textit{[Handled by
+	Corey Richardson]}
     \item \textit{Ease of finding existing books.} The system needs to be
         applicable to more than just the library maintainer. The search and
         browsing features of the website work to accomplish this goal. It is
         conceivable that more ways of accessing this information may be
-        desired in the future.
+        desired in the future. The system will achieve this by providing a web
+	front end, through which titles and authors of books presently in the 
+	library can be searched for. \textit{[Handled by Adam Kimball]}
     \item \textit{High availability.} The library is used frequently and at
         all times of the day. Therefore, the library administration system
-        should have minimal unscheduled downtime.
+        should have minimal unscheduled downtime. The system will provide for 
+	this by being placed onto the same machines and network as other services
+	for the COSI labs, meaning that, provided that rigorous testing eliminates
+	most bugs, this design goal will solve itself. \textit{[Handled by all members]}
     \item \textit{Uses available computing resources in the COSI server room.}
         This is a practical non-functional requirement imposed by the client.
         The library management system should integrate with the existing
-        infrastructure as much as possible, for ease of administration.
+        infrastructure as much as possible, for ease of administration. This will
+	be handled by the system by implementing the database through PostgreSQL,
+	the database backend used by all other databases in the labs. It will,
+	as such, be as familiar to all administrators as any other server in the 
+	labs. \textit{[Handled by Alex Macri]}
     \item \textit{Uses a comprehensible architecture for future maintainers.}
         After this system is designed and implemented, further requirements
         may come to light as the system is used and the library's needs grow.
         Further developers need to be able to understand and modify the
-        system, fixing bugs and adding features as necessary.
+        system, fixing bugs and adding features as necessary. This will provided
+	for by allowing all the source code to be openly accessible, and by
+	building the system in a multi-layered, modular style that allows for
+	interchangability of components. \textit{[Handled by all members]}
+
 \end{itemize}
 
 \newpage
